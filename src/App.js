@@ -1,24 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
+// import Login part of Login file
+import React, {useState} from "react";
+import Login from "./component/Login/Login";
+import Appstore from "./component/Appstore/Appstore";
 
 function App() {
+  const [login, setLogin] = useState(false);
+
+    const HandleLogin = () => {
+        setLogin(true)
+    }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="App">
+        <header className="App-header">
+          <h2>Appstore</h2>
+          <img src={logo} className="App-logo" alt="logo" />
+        </header>
+          {!login ? <Login handleLogin={HandleLogin}/> : <Appstore/>}
+      </div>
   );
 }
 
