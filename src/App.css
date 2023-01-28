@@ -1,3 +1,4 @@
+
 .App {
     display: flex;
     flex-direction: column;
@@ -7,7 +8,6 @@
 }
 
 .App-logo {
-    height: 40vmin;
     height: 80%;
     pointer-events: none;
 }
@@ -20,15 +20,14 @@
 
 .App-header {
     flex: 1;
+    margin: 1rem 1rem 0;
     border-radius: 1rem;
     background-color: #282c34;
-    min-height: 100vh;
     min-height: 5rem;
     display: flex;
     flex-direction: row-reverse;
-    flex-direction: row-reverse;
     align-items: center;
     justify-content: center;
-    font-size: calc(1px + 2vmin);
+    font-size: calc(10px + 2vmin);
     color: white;
 }

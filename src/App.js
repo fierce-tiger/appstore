@@ -1,9 +1,9 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
-// import Login part of Login file
+// import InitPage part of InitPage file
 import React, {useState} from "react";
-import Login from "./component/Login/Login";
-import Appstore from "./component/Appstore/Appstore";
+import InitPage from "./component/Initial/InitPage/InitPage.js";
+import Appstore from "./component/Appstore/Appstore.js";
 
 function App() {
   const [login, setLogin] = useState(false);
@@ -14,11 +14,10 @@ function App() {
 
   return (
       <div className="App">
-        <header className="App-header">
-          <h2>Appstore</h2>
-          <img src={logo} className="App-logo" alt="logo" />
-        </header>
-          {!login ? <Login handleLogin={HandleLogin}/> : <Appstore/>}
+          {login ?
+              <Appstore/>:
+              <InitPage handleLogin={HandleLogin}/>
+          }
       </div>
   );
 }
