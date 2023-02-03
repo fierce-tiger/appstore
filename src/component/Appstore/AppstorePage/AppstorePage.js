@@ -1,16 +1,22 @@
 import Card from "./Card";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 function AppstorePage() {
     const [loadingFinished, setLoadingFinished]=useState(false)
+
+    useEffect(() => {
+        let timer = setTimeout(() => {
+            setLoadingFinished(true);
+        }, 5000);
+
+        return () => { clearTimeout(timer) };
+    });
+
     return(
         <>
-            {setTimeout(()=>{
-                setLoadingFinished(true);
-            }, 5000)}
-            <h1>xxx用户，你好</h1>
-            <Card description={loadingFinished?"abcde":null} />
-            <Card/>
+            <h1>czp用户，你好</h1>
+            <Card description={loadingFinished ? "yuka" : null} />
+            <Card description={loadingFinished ? "Geshin Impact" : null} />
         </>
     );
 }
