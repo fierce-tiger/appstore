@@ -9,12 +9,14 @@ import {
 } from '@ant-design/icons';
 import { Layout, Menu, theme } from 'antd';
 import React, {useState} from 'react';
-import logo from 'D://appstore/appstore/src/logo.svg';
+import logo from '../../logo.svg';
 import './Appstore.css'
 // 7Pages
 import UserPage from "./UserPage/UserPage";
 import MailPage from "./MailPage/MailPage";
 import AppstorePage from "./AppstorePage/AppstorePage";
+import {getAuth} from "firebase/auth";
+import {firebaseApp} from "../../constants/constants";
 const { Header, Content, Footer, Sider } = Layout;
 const items = [
     { label: `我的服务`, icon: UserOutlined },

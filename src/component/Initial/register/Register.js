@@ -56,8 +56,8 @@ const App = ({onFinish}) => {
             scrollToFirstError
         >
             <Form.Item
-                name="Account"
-                label="Account"
+                name="email"
+                label="Email"
                 rules={[
                     {
                         required: true,
