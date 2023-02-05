@@ -12,6 +12,7 @@ const App = ({description}) => {
             hoverable
             style={{
                 width: 240,
+                marginRight:10
             }}
             loading = {reload}
             cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"/>}

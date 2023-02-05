@@ -1,7 +1,9 @@
 import './InItPage.css';
 import React, { useState } from 'react';
-import LoginStyle from "../Login/Login";
+import Login from "../Login/Login";
 import Register from "../register/Register";
+import {signInWithEmailAndPassword, createUserWithEmailAndPassword, getAuth} from "firebase/auth";
+import {firebaseApp} from "../../../constants/constants";
 const BackgroundBoard = ({ children }) => (
     <main className="background-board">{children}</main>
 );
@@ -12,17 +14,36 @@ function InitPage({handleLogin}) {
         setRegister(true)
     }
     const LoginFinish = (values) => {
-        console.log('Success:', values);
-        handleLogin()
+        console.log(values)
+        const auth=getAuth(firebaseApp)
+        signInWithEmailAndPassword(auth, values.email, values.password)
+            .then((userCredential)=>{
+                console.log("login successfully")
+                handleLogin()
+            }).catch((error)=>{
+                const errorMessage = error.message;
+                console.log(errorMessage)
+        })
     }
-    const RegisterFinish = () => {
-        setRegister(false)
+    const RegisterFinish = (values) => {
+        console.log(values)
+        const auth=getAuth(firebaseApp)
+        createUserWithEmailAndPassword(auth, values.email, values.password)
+            .then((userCredential)=>{
+                console.log("login successfully")
+                setRegister(false)
+                handleLogin()
+            }).catch((error)=>{
+                const errorMessage = error.message;
+                console.log(errorMessage)
+        })
+
     }
     return (
             <BackgroundBoard>
                 {register ?
                     <Register onFinish={RegisterFinish}/>:
-                    <LoginStyle onRegister={OnRegister} onFinish={LoginFinish}/>
+                    <Login onRegister={OnRegister} onFinish={LoginFinish}/>
                 }
             </BackgroundBoard>
     );
