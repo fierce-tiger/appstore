@@ -15,8 +15,6 @@ import './Appstore.css'
 import UserPage from "./UserPage/UserPage";
 import MailPage from "./MailPage/MailPage";
 import AppstorePage from "./AppstorePage/AppstorePage";
-import {getAuth} from "firebase/auth";
-import {firebaseApp} from "../../constants/constants";
 const { Header, Content, Footer, Sider } = Layout;
 const items = [
     { label: `我的服务`, icon: UserOutlined },

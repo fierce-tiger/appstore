@@ -4,7 +4,7 @@ import './App.css';
 import React, {useState} from "react";
 import InitPage from "./component/Initial/InitPage/InitPage.js";
 import Appstore from "./component/Appstore/Appstore.js";
-import {firebaseApp, TOKEN_KEY, auth} from "./constants/constants";
+import {auth} from "./constants/constants";
 import {onAuthStateChanged } from "firebase/auth";
 function App() {
     const [login, setLogin] = useState(false);

@@ -1,17 +1,10 @@
 import {
-    AutoComplete,
     Button,
-    Cascader,
     Checkbox,
-    Col,
     Form,
     Input,
-    InputNumber,
-    Row,
-    Select,
 } from 'antd';
-import { useState } from 'react';
-const { Option } = Select;
+
 const formItemLayout = {
     labelCol: {
         xs: {
@@ -74,7 +67,9 @@ const App = ({onFinish}) => {
                 rules={[
                     {
                         required: true,
-                        message: 'Please input your password!',
+                        min:6,
+                        // message: len(password) === 0 ? 'Please input your password!' : 'Please ensure that your password length is greater than or equal to 6',
+                        message: 'Please ensure that your password length is greater than or equal to 6',
                     },
                 ]}
                 hasFeedback
@@ -90,6 +85,7 @@ const App = ({onFinish}) => {
                 rules={[
                     {
                         required: true,
+                        min:6,
                         message: 'Please confirm your password!',
                     },
                     ({ getFieldValue }) => ({
