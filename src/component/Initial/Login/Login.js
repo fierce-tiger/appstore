@@ -1,5 +1,5 @@
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import {Button, Checkbox, Form, Input} from 'antd';
+import { Button, Checkbox, Form, Input} from 'antd';
 import { Divider } from 'antd';
 import './Login.css'
 
@@ -46,7 +46,7 @@ const App = ({onFinish, onRegister}) => {
                         <Checkbox>Remember me</Checkbox>
                     </Form.Item>
 
-                    <a className="login-form-forgot" href="www.baidu.com">
+                    <a className="login-form-forgot" href="">
                         Forgot password
                     </a>
                 </Form.Item>

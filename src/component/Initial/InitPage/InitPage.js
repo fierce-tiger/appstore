@@ -17,7 +17,7 @@ function InitPage({handleLogin}) {
         console.log(values)
         const auth=getAuth(firebaseApp)
         signInWithEmailAndPassword(auth, values.email, values.password)
-            .then((userCredential)=>{
+            .then(()=>{
                 console.log("login successfully")
                 handleLogin()
             }).catch((error)=>{
@@ -29,7 +29,7 @@ function InitPage({handleLogin}) {
         console.log(values)
         const auth=getAuth(firebaseApp)
         createUserWithEmailAndPassword(auth, values.email, values.password)
-            .then((userCredential)=>{
+            .then(()=>{
                 console.log("login successfully")
                 setRegister(false)
                 handleLogin()
@@ -37,7 +37,6 @@ function InitPage({handleLogin}) {
                 const errorMessage = error.message;
                 console.log(errorMessage)
         })
-
     }
     return (
             <BackgroundBoard>

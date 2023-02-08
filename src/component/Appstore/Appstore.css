@@ -13,3 +13,10 @@
     justify-content: center;
     color: white;
 }
+
+.logout-button {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+}
