@@ -46,7 +46,7 @@ const App = ({onFinish, onRegister}) => {
                         <Checkbox>Remember me</Checkbox>
                     </Form.Item>
 
-                    <a className="login-form-forgot" href="">
+                    <a className="login-form-forgot" href="www.google.com">
                         Forgot password
                     </a>
                 </Form.Item>
