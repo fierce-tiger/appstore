@@ -4,12 +4,14 @@ import Login from "../Login/Login";
 import Register from "../register/Register";
 import {signInWithEmailAndPassword, createUserWithEmailAndPassword, getAuth} from "firebase/auth";
 import {firebaseApp} from "../../../constants/constants";
+import {Alert, message} from "antd";
 const BackgroundBoard = ({ children }) => (
     <main className="background-board">{children}</main>
 );
 
 function InitPage({handleLogin}) {
     const [register, setRegister] = useState(false);
+    const [error, setError] = useState(null);
     const OnRegister = () => {
         setRegister(true)
     }

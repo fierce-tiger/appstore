@@ -1,5 +1,6 @@
 import{initializeApp} from  "firebase/app"
 import {getAuth} from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 export const TOKEN_KEY="token"
 
 export const BASE_URL="127.0.0.1:3000"
@@ -15,3 +16,6 @@ export const firebaseConfig = {
 
 export const firebaseApp = initializeApp(firebaseConfig);
 export const auth =getAuth(firebaseApp)
+export const db = getFirestore(firebaseApp);
+
+export const goods = "/goods"

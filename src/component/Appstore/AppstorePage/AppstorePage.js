@@ -1,31 +1,46 @@
 import Card from "./Card";
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
+import {collection, query, where, getDocs} from "firebase/firestore";
+
+import {db, goods} from "../../../constants/constants";
+import {Button, Modal} from "antd";
+
 
 function AppstorePage() {
-    const [loadingFinished, setLoadingFinished] = useState(false)
+    const goodsRef = useRef(null);
 
+    const [loadingFinished, setLoadingFinished] = useState(false)
+    const [showModal, setShowModal] = useState(false)
+    const handleCancel = () => {
+        setLoadingFinished(false);
+    };
     useEffect(() => {
         let timer = setTimeout(() => {
-            setLoadingFinished(true);
+            setLoadingFinished(false)
+            setShowModal(true)
         }, 5000);
-
+        const ref = collection(db, goods);
+        getDocs(query(ref)).then((doc) => {
+            goodsRef.current = doc.docs
+            clearTimeout(timer)
+            setLoadingFinished(true)
+        })
         return () => {
             clearTimeout(timer)
         };
     });
 
-    return (
-        <>
-            <h1>xxx用户，你好</h1>
+    return (<>
             <div style={{
-                flex: 10, display: "flex",
-                justifyContent: "left",
-                alignItems: "center",
-                flexDirection: "row",
+                flex: 10, display: "flex", justifyContent: "left", alignItems: "center", flexDirection: "row",
             }}>
-
-                <Card description={loadingFinished ? "yuka" : null}/>
-                <Card description={loadingFinished ? "Geshin Impact" : null}/>
+                <Modal title="Loading Failed" open={showModal} onOk={handleCancel} onCancel={handleCancel}>
+                    <p>Please check your network status.</p>
+                </Modal>
+                {!loadingFinished ? <Card data={null}/>
+                    : goodsRef.current.map((d, index) => {
+                        return <Card key={index} data={d.data()}/>
+                    })}
             </div>
         </>
 
